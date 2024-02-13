@@ -1,6 +1,8 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import Clock from "@/components/Clock";
 import { ContentSection } from "@/components/ContentSection";
+import { ItemSimple } from "@/components/ItemSimple/index";
+import profile from "@/mock/profile.json";
 import {
   AppWindow,
   ArrowRight,
@@ -10,19 +12,18 @@ import {
   GithubLogo,
   InstagramLogo,
   LinkedinLogo,
+  ListChecks,
   TwitchLogo,
   TwitterLogo,
   WhatsappLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
-import landingPage from "../../public/images/LandingPageIcon.png";
-import landingPageOptimization from "../../public/images/LandingPageOptimizationIcon.png";
-import octopost from "../../public/images/octopost.webp";
-import profileImage from "../../public/images/profile-2.webp";
-import rocketMovies from "../../public/images/rocket-movies.webp";
-import { ItemSimple } from "../components/ItemSimple/index";
-import profile from "../mock/profile.json";
+import landingPage from "public/images/LandingPageIcon.png";
+import landingPageOptimization from "public/images/LandingPageOptimizationIcon.png";
+import octopost from "public/images/octopost.webp";
+import profileImage from "public/images/profile-2.webp";
+import rocketMovies from "public/images/rocket-movies.webp";
 
 export default function Home() {
   return (
@@ -96,12 +97,24 @@ export default function Home() {
           <ContentSection.Content>
             <ContentSection.ImageContent
               title="Rocket Movies"
-              url={rocketMovies}
+              path={rocketMovies}
+              url="https://rocket-movies.piluvitu.dev/"
             >
               <FilmStrip size={20} className="fill-neutral-400" />
             </ContentSection.ImageContent>
-            <ContentSection.ImageContent title="Octopost" url={octopost}>
+            <ContentSection.ImageContent
+              title="Octopost"
+              path={octopost}
+              url="https://github.com/devhatt/octopost"
+            >
               <AppWindow size={20} className="fill-neutral-400" />
+            </ContentSection.ImageContent>
+            <ContentSection.ImageContent
+              title="ToDo"
+              path={octopost}
+              url="https://todo.piluvitu.dev/"
+            >
+              <ListChecks size={20} className="fill-neutral-400" />
             </ContentSection.ImageContent>
             <ButtonLink href="/work" redirect={false}>
               Veja mais <ArrowRight size={18} className="fill-neutral-500" />
@@ -151,7 +164,7 @@ export default function Home() {
           </ContentSection.Content>
         </ContentSection.Root>
       </main>
-      <footer>
+      <footer className="pt-10">
         <p>&copy; 2023 protifolio by @piluvitu </p>
         <p>Inspired by @justinmfarrugia</p>
       </footer>
